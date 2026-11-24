@@ -1,0 +1,23 @@
+{
+  "task": "literature-translator",
+  "challenge_id": "product-arena-01-5a9928c1",
+  "approach": "Terminology-locked, segment-aligned literature translation Skill: layout-aware paragraph extraction with page/bbox provenance; heuristic domain-term candidates to seed a glossary map; one-term-one-translation enforcement; segment-by-segment translation with context carryover; automatic verification of number/unit, figure/table/equation/citation, logic-marker, and glossary-consistency preservation.",
+  "methods": [
+    "terminology glossary extraction and locking",
+    "layout-aware paragraph segmentation with provenance",
+    "bilingual paragraph-level alignment",
+    "preservation verification (numbers/units/references/logic)",
+    "glossary term-consistency checking"
+  ],
+  "dependencies": ["PyMuPDF>=1.23.0"],
+  "input": "a research paper PDF",
+  "output": "scaffold.json (paragraphs/candidate terms/glossary template), translation.json (bilingual segments), verification.json (preservation issues), result.json (status/sources/uncertainty/change_records)",
+  "scope": "single- and two-column scientific PDFs with a text layer",
+  "limitations": [
+    "translation itself is performed by the calling agent",
+    "term candidates are heuristic and must be curated",
+    "formulas/tables embedded as images are flagged, not reconstructed",
+    "scanned PDFs (no text layer) are flagged for OCR"
+  ],
+  "honest_status": "Self-tested scaffold/verification on a public arXiv paper. The three official fixed cases are supplied only by the evaluation platform and are not included here."
+}
