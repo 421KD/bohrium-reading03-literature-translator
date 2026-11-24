@@ -1,0 +1,20 @@
+{
+  "paragraphs": 520,
+  "sections": 30,
+  "tables": 4,
+  "figures": 3,
+  "candidate_terms": 22,
+  "uncertainties": 0,
+  "sample_terms": [
+    "EOS",
+    "WSJ",
+    "BLEU",
+    "WMT",
+    "ACL",
+    "Yoshua Bengio",
+    "Ilya Sutskever",
+    "Neural Information Processing Systems",
+    "Head Attention",
+    "Noam Shazeer"
+  ]
+}
