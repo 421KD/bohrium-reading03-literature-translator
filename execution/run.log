@@ -1,0 +1,19 @@
+# Execution log — literature-translator self-test
+date: 2026-11-24
+python: 3.12.14
+dependency: PyMuPDF 2.1
+
+## Test 1 — translation scaffold extraction
+input: arXiv:1706.03762 (Attention Is All You Need), 15 pages
+command: python src/translate_pdf.py test/attention.pdf test/trans-scaffold
+result: 520 paragraphs, 30 sections, 4 tables, 3 figures, 22 candidate terms, 0 uncertainties
+outputs: execution/results/scaffold-summary.json
+
+## Test 2 — verification (synthetic bilingual segments, one planted error)
+command: python src/verify_translation.py test/trans-test/translation.json test/trans-test/out
+result: 3 segments, 1 flagged — logic_markers ['not','except'] correctly caught; 0 term inconsistencies
+outputs: execution/results/verification.json, execution/results/verification.md
+
+## Note
+Both self-tests use a public paper and a synthetic segment set. The three official
+fixed cases are supplied only by the evaluation platform and are NOT included in this bundle.
